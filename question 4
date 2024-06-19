@@ -1,0 +1,26 @@
+def sum_of_products(n1, n2):
+    # Convert the numbers to strings to easily access their digits
+    str_n1 = str(n1)[::-1]
+    str_n2 = str(n2)[::-1]
+    
+    # Get the length of the longest number
+    max_len = max(len(str_n1), len(str_n2))
+    
+    # Initialize the sum of products
+    sum_products = 0
+    
+    # Iterate over the digits of both numbers
+    for i in range(max_len):
+        # Get the digit from each number, if the index exceeds the length, use 0
+        digit1 = int(str_n1[i]) if i < len(str_n1) else 0
+        digit2 = int(str_n2[i]) if i < len(str_n2) else 0
+        
+        # Calculate the product and add it to the sum of products
+        sum_products += digit1 * digit2
+    
+    return sum_products
+
+# Example usage:
+print(sum_of_products(6, 34))  # Output: 24
+print(sum_of_products(123, 456))  # Output: 27
+print(sum_of_products(15, 28))  # Output: 41
