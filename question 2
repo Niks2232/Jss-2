@@ -1,0 +1,35 @@
+def calculate(operation, num1, num2):
+    def add(x, y):
+        return x + y
+
+    def subtract(x, y):
+        return x - y
+
+    def multiply(x, y):
+        return x * y
+
+    def divide(x, y):
+        if y != 0:
+            return x / y
+        else:
+            return "Error: Division by zero"
+
+    switcher = {
+        'add': add,
+        'subtract': subtract,
+        'multiply': multiply,
+        'divide': divide
+    }
+
+    # Get the function from switcher dictionary
+    func = switcher.get(operation, lambda x, y: "Invalid operation")
+
+    return func(num1, num2)
+
+# Example usage:
+print(calculate('add', 10, 5))        # Output: 15
+print(calculate('subtract', 10, 5))   # Output: 5
+print(calculate('multiply', 10, 5))   # Output: 50
+print(calculate('divide', 10, 5))     # Output: 2.0
+print(calculate('divide', 10, 0))     # Output: Error: Division by zero
+print(calculate('modulus', 10, 5))    # Output: Invalid operation
